@@ -22,17 +22,23 @@ class Books(Base):
     price = Column(Integer())
     
     #1.a✅ Add  ForeignKey('owners.id') to owner)id
-    # THe pet BELONGS_TO the owner
+    # The book BELONGS_TO the owner
     owner_id = Column(Integer(), ForeignKey("owners.id"))
    
     def __repr__(self):
         return f"Id: {self.id}, " \
             + f"Name:{self.name}, " \
-            + f"Publisher: {self.species}, "\
-            + f"Breed {self.breed}, "\
-            + f"Species {self.temperament}"
+            + f"Publisher: {self.publisher}, "\
+            + f"Genre: {self.genre}, "\
+            + f"ISBN: {self.isbn}, "\
+            + f"Edition: {self.edition}, "\
+            + f"ISBN: {self.pages}, "\
+            + f"Sales: {self.sales}, "\
+            + f"Price: {self.price}, "\
+            
     
-    jobs = relationship("Job", backref=backref("pet"))
+    
+    # jobs = relationship("Job", backref=backref("pet"))
 
 
 # ? Review
@@ -66,3 +72,39 @@ class Owner(Base):
             + f"Email: {self.email}" \
             + f"Phone: {self.phone}" \
             + f"Address: {self.address}"
+    
+        # jobs = relationship("Job", backref=backref("handler"))
+
+ 
+#Create a "jobs" table to serve as our join
+# class Job(Base):
+#     __tablename__ = "jobs"
+
+#     #Create the following columns
+#     id = Column(Integer(), primary_key=True)
+#     request = Column(String())
+#     date = Column(String())
+#     fee = Column(Float())
+
+#     pet_id = Column(Integer(), ForeignKey("pets.id"))
+#     handler_id = Column(Integer(), ForeignKey("handlers.id"))
+
+#     # pet = relationship("Pet", backref=backref("pets"))
+#     # handler = relationship("Handler", backref=backref("handlers"))
+    
+#     def __repr__(self):
+#         return f"Id: {self.id}" \
+#             + f"request: {self.request}" \
+#             + f"date: {self.date}" \
+#             + f"fee: {self.fee}"
+
+
+#     #Associate the models with relationship(<ModelNameHere>, backref=backref(<TableNameHere>))
+   
+
+#     #Add a __repr__ method that returns a string containing the id, request, date, notes, fee, pet_id and handler_id of our class
+   
+    
+# #5.✅ Update your migrations by running `alembic revision --autogenerate -m` and `alembic upgrade head` 
+
+# #After running your migrations, go build out some seeds and test your many to many
