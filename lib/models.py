@@ -20,7 +20,7 @@ class Books(Base):
     books_price = Column(Integer())
     
     #1.a✅ Add  ForeignKey('owners.id') to owner)id
-    # The book BELONGS_TO the owner
+    # The book BELONGS_TO the owner - ??? - is this in the wrong
     owner_id = Column(Integer(), ForeignKey("owners.id"))
    
     def __repr__(self):
