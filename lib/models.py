@@ -12,14 +12,12 @@ class Books(Base):
     __table_args__ = (PrimaryKeyConstraint('id'),)
 
     id = Column(Integer())
-    name = Column(String())
-    publisher = Column(String())
-    genre = Column(String())
-    isbn = Column(String())
-    edition = Column(Integer())
-    pages = Column(Integer())
-    sales = Column(Integer())
-    price = Column(Integer())
+    books_name = Column(String())
+    books_publisher = Column(String())
+    books_genre = Column(String())
+    books_pages = Column(Integer())
+    books_sales = Column(Integer())
+    books_price = Column(Integer())
     
     #1.a✅ Add  ForeignKey('owners.id') to owner)id
     # The book BELONGS_TO the owner
@@ -27,14 +25,12 @@ class Books(Base):
    
     def __repr__(self):
         return f"Id: {self.id}, " \
-            + f"Name:{self.name}, " \
-            + f"Publisher: {self.publisher}, "\
-            + f"Genre: {self.genre}, "\
-            + f"ISBN: {self.isbn}, "\
-            + f"Edition: {self.edition}, "\
-            + f"ISBN: {self.pages}, "\
-            + f"Sales: {self.sales}, "\
-            + f"Price: {self.price}, "\
+            + f"Books name:{self.books_name}, " \
+            + f"Books publisher: {self.books_publisher}, "\
+            + f"Books genre: {self.books_genre}, "\
+            + f"Books pages: {self.books_pages}, "\
+            + f"Books sales: {self.books_sales}, "\
+            + f"Books price: {self.books_price}, "\
             
     
     
@@ -61,20 +57,37 @@ class Owner(Base):
     # def __init__(self, ....):
 
     id = Column(Integer(), primary_key=True)
-    name = Column(String())
-    email = Column(String())
-    phone = Column(Integer())
-    address = Column(String())
+    owner_name = Column(String())
+    owner_email = Column(String())
+    owner_phone = Column(Integer())
+    owner_address = Column(String())
 
     def __repr__(self):
         return f"Id: {self.id}" \
-            + f"Name: {self.name}" \
-            + f"Email: {self.email}" \
-            + f"Phone: {self.phone}" \
-            + f"Address: {self.address}"
+            + f"Owner name: {self.owner_name}" \
+            + f"Owner email: {self.owner_email}" \
+            + f"Owner phone: {self.owner_phone}" \
+            + f"Owner address: {self.owner_address}"
     
         # jobs = relationship("Job", backref=backref("handler"))
 
+class Library(Base):
+    __tablename__  = "libraries"
+
+    # def __init__(self, ....):
+
+    id = Column(Integer(), primary_key=True)
+    library_name = Column(String())
+    libray_address = Column(String())
+    library_city = Column(Integer())
+    library_state = Column(Integer())
+
+    def __repr__(self):
+        return f"Id: {self.id}" \
+            + f"Name: {self.library_name}" \
+            + f"Library address: {self.libray_address}" \
+            + f"Library city: {self.library_city}" \
+            + f"Library state: {self.library_state}"\
  
 #Create a "jobs" table to serve as our join
 # class Job(Base):
