@@ -8,6 +8,8 @@ sqlalchemy = "*"
 alembic = "*"
 Faker = "*"
 ipdb = "*"
+sqlalchemy = "*"
+alembic = "*"
 
 
 [dev-packages]
