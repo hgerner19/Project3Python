@@ -7,11 +7,11 @@ from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
 
-class Books(Base):
+class Book(Base):
     __tablename__ = 'books'
     __table_args__ = (PrimaryKeyConstraint('id'),)
 
-    id = Column(Integer())
+    id = Column(Integer(), primary_key=True)
     books_name = Column(String())
     books_publisher = Column(String())
     books_genre = Column(String())
