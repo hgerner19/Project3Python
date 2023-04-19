@@ -12,29 +12,32 @@ class Book(Base):
     __table_args__ = (PrimaryKeyConstraint('id'),)
 
     id = Column(Integer(), primary_key=True)
-    books_name = Column(String())
-    books_publisher = Column(String())
-    books_genre = Column(String())
-    books_pages = Column(Integer())
-    books_sales = Column(Integer())
-    books_price = Column(Integer())
+    book_name = Column(String())
+    book_publisher = Column(String())
+    book_genre = Column(String())
+    book_pages = Column(Integer())
+    book_sales = Column(Integer())
+    book_price = Column(Integer())
+    book_rating = Column(Integer())
     
-    #1.a✅ Add  ForeignKey('owners.id') to owner)id
-    # The book BELONGS_TO the owner - ??? - is this in the wrong
+    #1.a✅ Add  ForeignKey('owners.id', 'libraries.id') 
+    # The book BELONGS_TO the owner 
+    # The book BELONGS_TO the library
     owner_id = Column(Integer(), ForeignKey("owners.id"))
+    library_id = Column(Integer(), ForeignKey("libraries.id"))
    
     def __repr__(self):
         return f"Id: {self.id}, " \
-            + f"Books name:{self.books_name}, " \
-            + f"Books publisher: {self.books_publisher}, "\
-            + f"Books genre: {self.books_genre}, "\
-            + f"Books pages: {self.books_pages}, "\
-            + f"Books sales: {self.books_sales}, "\
-            + f"Books price: {self.books_price}, "\
+            + f"Book name:{self.book_name}, " \
+            + f"Book publisher: {self.book_publisher}, "\
+            + f"Book genre: {self.book_genre}, "\
+            + f"Book pages: {self.book_pages}, "\
+            + f"Book sales: {self.book_sales}, "\
+            + f"Book price: {self.book_price}, "\
+            + f"Book rating: {self.book_rating}, "\
             
     
     
-    # jobs = relationship("Job", backref=backref("pet"))
 
 
 # ? Review
@@ -69,7 +72,7 @@ class Owner(Base):
             + f"Owner phone: {self.owner_phone}" \
             + f"Owner address: {self.owner_address}"
     
-        # jobs = relationship("Job", backref=backref("handler"))
+    books = relationship("Book", backref=backref("owner"))
 
 class Library(Base):
     __tablename__  = "libraries"
@@ -88,36 +91,10 @@ class Library(Base):
             + f"Library address: {self.libray_address}" \
             + f"Library city: {self.library_city}" \
             + f"Library state: {self.library_state}"\
+            
+    books = relationship("Book", backref=backref("library"))
  
-#Create a "jobs" table to serve as our join
-# class Job(Base):
-#     __tablename__ = "jobs"
 
-#     #Create the following columns
-#     id = Column(Integer(), primary_key=True)
-#     request = Column(String())
-#     date = Column(String())
-#     fee = Column(Float())
-
-#     pet_id = Column(Integer(), ForeignKey("pets.id"))
-#     handler_id = Column(Integer(), ForeignKey("handlers.id"))
-
-#     # pet = relationship("Pet", backref=backref("pets"))
-#     # handler = relationship("Handler", backref=backref("handlers"))
-    
-#     def __repr__(self):
-#         return f"Id: {self.id}" \
-#             + f"request: {self.request}" \
-#             + f"date: {self.date}" \
-#             + f"fee: {self.fee}"
-
-
-#     #Associate the models with relationship(<ModelNameHere>, backref=backref(<TableNameHere>))
-   
-
-#     #Add a __repr__ method that returns a string containing the id, request, date, notes, fee, pet_id and handler_id of our class
-   
-    
 # #5.✅ Update your migrations by running `alembic revision --autogenerate -m` and `alembic upgrade head` 
 
 # #After running your migrations, go build out some seeds and test your many to many

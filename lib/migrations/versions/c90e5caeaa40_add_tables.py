@@ -1,8 +1,8 @@
-"""Added Albania
+"""Add tables
 
-Revision ID: aa23f81cdbce
-Revises: 5257b1d677dc
-Create Date: 2023-04-18 17:55:28.216689
+Revision ID: c90e5caeaa40
+Revises: 17f217651cb9
+Create Date: 2023-04-19 10:18:40.478878
 
 """
 from alembic import op
@@ -10,8 +10,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'aa23f81cdbce'
-down_revision = '5257b1d677dc'
+revision = 'c90e5caeaa40'
+down_revision = '17f217651cb9'
 branch_labels = None
 depends_on = None
 
@@ -36,13 +36,16 @@ def upgrade() -> None:
     )
     op.create_table('books',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('books_name', sa.String(), nullable=True),
-    sa.Column('books_publisher', sa.String(), nullable=True),
-    sa.Column('books_genre', sa.String(), nullable=True),
-    sa.Column('books_pages', sa.Integer(), nullable=True),
-    sa.Column('books_sales', sa.Integer(), nullable=True),
-    sa.Column('books_price', sa.Integer(), nullable=True),
+    sa.Column('book_name', sa.String(), nullable=True),
+    sa.Column('book_publisher', sa.String(), nullable=True),
+    sa.Column('book_genre', sa.String(), nullable=True),
+    sa.Column('book_pages', sa.Integer(), nullable=True),
+    sa.Column('book_sales', sa.Integer(), nullable=True),
+    sa.Column('book_price', sa.Integer(), nullable=True),
+    sa.Column('book_rating', sa.Integer(), nullable=True),
     sa.Column('owner_id', sa.Integer(), nullable=True),
+    sa.Column('library_id', sa.Integer(), nullable=True),
+    sa.ForeignKeyConstraint(['library_id'], ['libraries.id'], ),
     sa.ForeignKeyConstraint(['owner_id'], ['owners.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
