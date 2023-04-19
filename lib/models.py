@@ -11,7 +11,7 @@ class Books(Base):
     __tablename__ = 'books'
     __table_args__ = (PrimaryKeyConstraint('id'),)
 
-    id = Column(Integer(), primary_key=True)
+    id = Column(Integer())
     name = Column(String())
     publisher = Column(String())
     genre = Column(String())
@@ -49,7 +49,7 @@ class Books(Base):
     # In alembic.ini, find `sqlalchemy.url`` and set it to `sqlalchemy.url = sqlite:///pet_app.db`
     # In env.py, find `target_metadata` and add `from models import Base` above it. Next, set target_metadata to `target_metadata = Base.metadata`
 
-#2.c ✅ Generate a migration by running `alembic revision --autogenerate -m "Added Pet model"`
+#2.c ✅ Generate a migration by running `alembic revision --autogenerate -m "Added  model"`
     # pet_app.db should have been added to your file structure
 
 
