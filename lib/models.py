@@ -17,8 +17,8 @@ class Book(Base):
     book_genre = Column(String())
     book_pages = Column(Integer())
     book_sales = Column(Integer())
-    book_price = Column(Integer())
-    book_rating = Column(Integer())
+    book_price = Column(Float())
+    book_rating = Column(Float())
     
     #1.a✅ Add  ForeignKey('owners.id', 'libraries.id') 
     # The book BELONGS_TO the owner 
@@ -29,7 +29,7 @@ class Book(Base):
     def __repr__(self):
         return f"Id: {self.id}, " \
             + f"Book name:{self.book_name}, " \
-            + f"Book publisher: {self.book_publisher}, "\
+            + f"Book author: {self.book_author}, "\
             + f"Book genre: {self.book_genre}, "\
             + f"Book pages: {self.book_pages}, "\
             + f"Book sales: {self.book_sales}, "\
@@ -62,7 +62,7 @@ class Owner(Base):
     id = Column(Integer(), primary_key=True)
     owner_name = Column(String())
     owner_email = Column(String())
-    owner_phone = Column(Integer())
+    owner_phone = Column(String())
     owner_address = Column(String())
 
     def __repr__(self):
@@ -82,8 +82,8 @@ class Library(Base):
     id = Column(Integer(), primary_key=True)
     library_name = Column(String())
     libray_address = Column(String())
-    library_city = Column(Integer())
-    library_state = Column(Integer())
+    library_city = Column(String())
+    library_state = Column(String())
 
     def __repr__(self):
         return f"Id: {self.id}" \
