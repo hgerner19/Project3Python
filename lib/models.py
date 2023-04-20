@@ -4,6 +4,7 @@ from sqlalchemy import (PrimaryKeyConstraint, Column, String, Integer, Float,  D
 # import relationship and backref from sqlalchemy.orm 
 from sqlalchemy.orm import relationship, backref
 from sqlalchemy.ext.declarative import declarative_base
+import ipdb;
 
 Base = declarative_base()
 
@@ -19,6 +20,7 @@ class Book(Base):
     book_sales = Column(Integer())
     book_price = Column(Float())
     book_rating = Column(Float())
+    book_inventory = Column(Integer())
     
     #1.a✅ Add  ForeignKey('owners.id', 'libraries.id') 
     # The book BELONGS_TO the owner 
@@ -35,6 +37,7 @@ class Book(Base):
             + f"Book sales: {self.book_sales}, "\
             + f"Book price: {self.book_price}, "\
             + f"Book rating: {self.book_rating}, "\
+            + f"Book inventory: {self.book_inventory}, "\
             
     
     
@@ -93,6 +96,7 @@ class Library(Base):
             + f"Library state: {self.library_state}"\
             
     books = relationship("Book", backref=backref("library"))
+
 
 
 # #5.✅ Update your migrations by running `alembic revision --autogenerate -m` and `alembic upgrade head` 

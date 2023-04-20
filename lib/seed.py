@@ -53,30 +53,77 @@ if __name__ == "__main__":
 # Genres: Novel, Fiction, Fantasy , Short Story, Drama, Nonfiction 
 
     print("CREATING BOOKS....")
-    a_christmas_carol = Book(book_name="A Christmas Carol", book_author= "Charles Dickens", book_genre="Short Story",
-    book_pages= 64, book_sales= 2000000, book_price= 5.99, book_rating= 4.1,owner_id=holden.id, library_id=denver.id)
-    animal_farm = Book(book_name="Animal Farm", book_author="George Orwell",book_genre="Fiction",
-    book_pages=128, book_sales=250000, book_price=10.99, book_rating=4.0,owner_id=holden.id, library_id=denver.id)
-    dracula = Book(book_name="Dracula", book_author= "Bram Stoker",book_genre="Fantasy", 
-    book_pages=488, book_sales=4000000, book_price=11.99, book_rating=4.0,owner_id=holden.id, library_id=denver.id)
-    farenheit_451 = Book(book_name="Fahrenheit 451", book_author= "Ray Bradbury",book_genre="Fiction",
-    book_pages=194, book_sales=10000000, book_price=8.36, book_rating=4.0, owner_id=holden.id, library_id=denver.id)
-    jane_eyre = Book(book_name="Jane Eyre", book_author= "Charlote Bronte", book_genre="Fiction",
-    book_pages=532, book_sales=2000000, book_price=7.99, book_rating=4.1,owner_id=cole.id, library_id=boston.id)
-    little_women = Book(book_name="Little Women", book_author= "Lousia May Alcott",book_genre="Novel",
-    book_pages=449, book_sales=1780000, book_price=14.91, book_rating=4.1, owner_id=cole.id, library_id=boston.id)
-    moby_dick = Book(book_name="Moby Dick", book_author= "Herman Melville",book_genre="Fiction",
-    book_pages=427, book_sales=10000000, book_price=15.72, book_rating=4.3,owner_id=cole.id,library_id=boston.id)
-    nineteen_eighty_four = Book(book_name="Nineteen Eighty-Four", book_author= "George Orwell", book_genre="Science Fiction",
-    book_pages=328, book_sales=8000000, book_price=7.48, book_rating=4.6,owner_id=cole.id,library_id=boston.id)
-    of_mice_and_men = Book(book_name="Of Mice and Men", book_author= "John Steinbeck", book_genre="Fiction",
-    book_pages=107, book_sales=7500000, book_price=9.72, book_rating=4.6, owner_id=joe.id, library_id=seattle.id)
-    one_hundred_years_of_solitude = Book(book_name="One Hundred Years of Solitude",book_author= "Gabriel Garcia", book_genre="Novel",
-    book_pages=448, book_sales=50000000, book_price=8.99, book_rating=4.5, owner_id=joe.id, library_id=seattle.id)
-    catcher_in_the_rye = Book(book_name="The Catcher In The Rye", book_author= "J.D. Salinger", book_genre="Novel",
-    book_pages=234, book_sales=65000000, book_price=8.93, book_rating=3.8, owner_id=joe.id, library_id=seattle.id)
-    great_gatsby = Book(book_name="The Great Gatsby",book_author= "F. Scott Fitzgerald",book_genre="Fiction",
-    book_pages=208, book_sales=25000000, book_price=10.99, book_rating=4.6, owner_id=joe.id, library_id=seattle.id)
+    a_christmas_carol = Book(book_name="A Christmas Carol", 
+    book_author= "Charles Dickens", book_genre="Short Story",
+    book_pages= 64, book_sales= 2000000, book_price= 5.99, 
+    book_rating= 4.1, book_inventory=5, 
+    owner_id=holden.id, library_id=denver.id)
+
+    animal_farm = Book(book_name="Animal Farm", 
+    book_author="George Orwell",book_genre="Fiction",
+    book_pages=128, book_sales=250000, book_price=10.99, 
+    book_rating=4.0, book_inventory=5, 
+    owner_id=holden.id, library_id=denver.id)
+
+    dracula = Book(book_name="Dracula", 
+    book_author= "Bram Stoker", book_genre="Fantasy", 
+    book_pages=488, book_sales=4000000, book_price=11.99, 
+    book_rating=4.0, book_inventory=5, 
+    owner_id=holden.id, library_id=denver.id)
+
+    farenheit_451 = Book(book_name="Fahrenheit 451", 
+    book_author= "Ray Bradbury", book_genre="Fiction",
+    book_pages=194, book_sales=10000000, book_price=8.36, 
+    book_rating=4.0, book_inventory=5, 
+    owner_id=holden.id, library_id=denver.id)
+
+    jane_eyre = Book(book_name="Jane Eyre", 
+    book_author= "Charlote Bronte", book_genre="Fiction",
+    book_pages=532, book_sales=2000000, book_price=7.99,
+    book_rating=4.1, book_inventory=5, 
+    owner_id=cole.id, library_id=boston.id)
+
+    little_women = Book(book_name="Little Women", 
+    book_author= "Lousia May Alcott",book_genre="Novel",
+    book_pages=449, book_sales=1780000, book_price=14.91, 
+    book_rating=4.1, book_inventory=5, 
+    owner_id=cole.id, library_id=boston.id)
+
+    moby_dick = Book(book_name="Moby Dick",
+    book_author= "Herman Melville", book_genre="Fiction",
+    book_pages=427, book_sales=10000000, book_price=15.72,
+    book_rating=4.3, book_inventory=5, 
+    owner_id=cole.id, library_id=boston.id)
+
+    nineteen_eighty_four = Book(book_name="Nineteen Eighty-Four", 
+    book_author= "George Orwell", book_genre="Science Fiction",
+    book_pages=328, book_sales=8000000, book_price=7.48, 
+    book_rating=4.6, book_inventory=5, 
+    owner_id=cole.id, library_id=boston.id)
+
+    of_mice_and_men = Book(book_name="Of Mice and Men", 
+    book_author= "John Steinbeck", book_genre="Fiction",
+    book_pages=107, book_sales=7500000, book_price=9.72, 
+    book_rating=4.6, book_inventory=5, 
+    owner_id=joe.id, library_id=seattle.id)
+
+    one_hundred_years_of_solitude = Book(book_name="One Hundred Years of Solitude",
+    book_author= "Gabriel Garcia", book_genre="Novel",
+    book_pages=448, book_sales=50000000, book_price=8.99, 
+    book_rating=4.5, book_inventory=5, 
+    owner_id=joe.id, library_id=seattle.id)
+
+    catcher_in_the_rye = Book(book_name="The Catcher In The Rye",
+    book_author= "J.D. Salinger", book_genre="Novel",
+    book_pages=234, book_sales=65000000, book_price=8.93, 
+    book_rating=3.8, book_inventory=5, 
+    owner_id=joe.id, library_id=seattle.id)
+
+    great_gatsby = Book(book_name="The Great Gatsby",
+    book_author= "F. Scott Fitzgerald", book_genre="Fiction",
+    book_pages=208, book_sales=25000000, book_price=10.99, 
+    book_rating=4.6, book_inventory=5, 
+    owner_id=joe.id, library_id=seattle.id)
 
 
 
@@ -95,6 +142,7 @@ if __name__ == "__main__":
     
 
     session.commit()
+    ipdb.set_trace()
     
     print("DONE!")
 
