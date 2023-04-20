@@ -1,6 +1,7 @@
 from sqlalchemy import create_engine 
 from sqlalchemy.orm import sessionmaker
 from models import (Base, Book, Owner, Library)
+import ipdb;
 
 if __name__ == "__main__":
     print("Seeding 🌱...")
@@ -15,7 +16,7 @@ if __name__ == "__main__":
     session.query(Owner).delete()
     session.query(Library).delete()
     session.commit()
-
+    
 
 
     print("CREATING LIBRARIES....")
@@ -26,17 +27,20 @@ if __name__ == "__main__":
     seattle = Library(id = 3, library_name = "Seattle Public Library", libray_address = "1000 Fourth Ave., 98104",
     library_city = "Seattle", library_state = "WA")
 
+
+
     session.add(denver)
     session.add(boston)
     session.add(seattle)
     session.commit()
+    
 
 
     print("CREATING OWNERS....")
     holden = Owner(id =1, owner_name = "Holden Gerner", owner_email= "holdeng@hotmail.com",
     owner_phone="123-456-7890", owner_address="130 Peterson Rd, Libertyville,Indiana")
     cole = Owner(id = 2, owner_name = "Cole Perry", owner_email = "colep@hotmail.com",
-    owner_number="234-432-8679", owner_address = "124 S Forrest Ave, Liberty, Mississippi")
+    owner_phone="234-432-8679", owner_address = "124 S Forrest Ave, Liberty, Mississippi")
     joe = Owner(id = 3, owner_name = "Joe Smoo", owner_email = "Joes@hotmail.com",
     owner_phone = "732-0932-8888", owner_address = "500 Sand Dune Dr, Kitty Hawk Nebraska")
 
@@ -44,7 +48,7 @@ if __name__ == "__main__":
     session.add(cole)
     session.add(joe)
     session.commit()
-
+    
 
 # Genres: Novel, Fiction, Fantasy , Short Story, Drama, Nonfiction 
 
@@ -74,6 +78,8 @@ if __name__ == "__main__":
     great_gatsby = Book(book_name="The Great Gatsby",book_author= "F. Scott Fitzgerald",book_genre="Fiction",
     book_pages=208, book_sales=25000000, book_price=10.99, book_rating=4.6, owner_id=joe.id, library_id=seattle.id)
 
+
+
     session.add(a_christmas_carol)
     session.add(animal_farm)
     session.add(dracula)
@@ -86,9 +92,10 @@ if __name__ == "__main__":
     session.add(one_hundred_years_of_solitude)
     session.add(catcher_in_the_rye)
     session.add(great_gatsby)
-
+    
 
     session.commit()
+    
     print("DONE!")
 
 

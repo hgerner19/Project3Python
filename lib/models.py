@@ -13,7 +13,7 @@ class Book(Base):
 
     id = Column(Integer(), primary_key=True)
     book_name = Column(String())
-    book_publisher = Column(String())
+    book_author = Column(String())
     book_genre = Column(String())
     book_pages = Column(Integer())
     book_sales = Column(Integer())
@@ -93,7 +93,7 @@ class Library(Base):
             + f"Library state: {self.library_state}"\
             
     books = relationship("Book", backref=backref("library"))
- 
+
 
 # #5.✅ Update your migrations by running `alembic revision --autogenerate -m` and `alembic upgrade head` 
 
