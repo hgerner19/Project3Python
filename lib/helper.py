@@ -190,10 +190,10 @@ def return_book():
         pass
     pass
 
-def donate_book():
-    print("Which book would you like to donate?")
-    donate_input = input()
-    print("Thanks for donating {donate_input}")
+# def donate_book():
+#     print("Which book would you like to donate?")
+#     donate_input = input()
+#     print("Thanks for donating {donate_input}")
 
 def filter_books():
     print("What would you like to Filter by?")
@@ -205,19 +205,115 @@ def filter_books():
     filter_input = input()
 
     if filter_input == "1":
-        pass
-    if filter_input == "2":
-        pass
-    if filter_input == "3":
-        pass
-    if filter_input == "4":
-        pass
-    if filter_input == "5":
+        filter_genre()
+        filter_books()
         
-        pass
-    
+    if filter_input == "2":
+        filter_price()
+        filter_books()
+        
+    if filter_input == "3":
+        filter_rating()
+        filter_books()
+        
+    if filter_input == "4":
+        filter_pages()
+        filter_books()
+        
+    if filter_input == "5":
+        show_book_options()
+        
 
-    pass
+# Filter_Book Options
+def filter_genre():
+    print("-" * 50)
+    print("What genre would you like to filter by?")
+    print("-" * 50)
+    check_genre = input()
+    filtered_books = [book for book in books if book.book_genre == check_genre]
+    if not filtered_books:
+        print(f"No books found for {check_genre} genre")
+    else:
+        print("-" * 50)
+        print(f"Here are the books for {check_genre} genre:")
+        for book in filtered_books:
+            print("-" * 50)
+            print("Book: ", book.book_name)
+            print("Author: ", book.book_author)
+            print("Genre: ", book.book_genre)
+            print("Pages: ", book.book_pages)
+            print("Price: ", book.book_price)
+            print("Rating: ", book.book_rating)
+            print("Current Inventory: ", book.book_inventory)
+            print("-" * 50)
+
+def filter_price():
+    print("-" * 50)
+    print("What price would you like to filter by?")
+    print("-" * 50)
+    check_price = input()
+    filtered_price = [book for book in books if book.book_price == check_price]
+    if not filtered_price:
+        print(f"No books found for {check_price}")
+    else:
+        print("-" * 50)
+        print(f"Here are the books for {check_price}")
+        for book in filtered_price:
+            print("-" * 50)
+            print("Book: ", book.book_name)
+            print("Author: ", book.book_author)
+            print("Genre: ", book.book_genre)
+            print("Pages: ", book.book_pages)
+            print("Price: ", book.book_price)
+            print("Rating: ", book.book_rating)
+            print("Current Inventory: ", book.book_inventory)
+            print("-" * 50)
+
+def filter_rating():
+    print("-" * 50)
+    print("What rating would you like to filter by?")
+    print("-" * 50)
+    check_rating = input()
+    filtered_rating = [book for book in books if book.book_rating == check_rating]
+    if not filtered_rating:
+        print(f"No books found for {check_rating}")
+    else:
+        print("-" * 50)
+        print(f"Here are the books for {check_rating}")
+        for book in filtered_rating:
+            print("-" * 50)
+            print("Book: ", book.book_name)
+            print("Author: ", book.book_author)
+            print("Genre: ", book.book_genre)
+            print("Pages: ", book.book_pages)
+            print("Price: ", book.book_price)
+            print("Rating: ", book.book_rating)
+            print("Current Inventory: ", book.book_inventory)
+            print("-" * 50)
+
+def filter_pages():
+    print("-" * 50)
+    print("What number of pages would you like to filter by?")
+    print("-" * 50)
+    check_pages = input()
+    filtered_pages = [book for book in books if book.book_pages == check_pages]
+    if not filtered_pages:
+        print(f"No books found for {check_pages}")
+    else:
+        print("-" * 50)
+        print(f"Here are the books for {check_pages}")
+        for book in filtered_pages:
+            print("-" * 50)
+            print("Book: ", book.book_name)
+            print("Author: ", book.book_author)
+            print("Genre: ", book.book_genre)
+            print("Pages: ", book.book_pages)
+            print("Price: ", book.book_price)
+            print("Rating: ", book.book_rating)
+            print("Current Inventory: ", book.book_inventory)
+            print("-" * 50)
+
+    
 
 
 
