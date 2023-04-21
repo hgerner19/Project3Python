@@ -18,7 +18,7 @@ owner = session.query(Owner).all()
     #  3. Return a book to a library
     #  4. Donate a book
     #  5. Relocate a library
-    #  6. Filter by things such as genre, page numbers, rating
+    #  6. Filter by things such as genre, page numbers, rating, etc.
 
 def main_menu():
     print("Choose an option:")
@@ -149,7 +149,9 @@ def buy_book():
                 print(f"The price of {book.book_name} is {book.book_price}")
                 print("Would you like to checkout (Y/N)")
                 print("-" * 50)
+                 
                 answer = input()
+                
                 if answer == "Y":
                     print("Here you go!")
                     print("-" * 50)
@@ -160,9 +162,9 @@ def buy_book():
             else:
                 print("-" * 50)
                 print("Sorry, we are all out of that book.")
-                print("-" * 50
+                print("-" * 50)
             book_found = True
-            break
+            break  
 
         if not book_found:
             print("-" * 50)
@@ -180,11 +182,10 @@ def return_book():
         if book.book_name == return_input:
             print(f"Thank you for returning {book.book_name}")
             book.book_inventory += 1
-            book_found = True # if book is found stop the code
+            book_found = True 
             break
-
-        if not book_found:
-            print("Woah, that is not one our books.")
+    if not book_found:
+        print("Woah, that is not one our books.")
 
 def donate_book():
     # list of all the genres
@@ -330,24 +331,24 @@ def filter_price():
 
         elif book.book_price > 12:
             expensive.append(f"{book.book_name} - ${book.book_price}")
-
+            
     # Printing each list 
     print("-" * 50)
     print("Cheap Priced Books:")
     print("")
-    for index in cheap:
+    for index in ordercheap:
         print(index)
 
     print("-" * 50)
     print("Medium Priced Books:")
     print("")
-    for index in medium:
+    for index in ordermedium:
         print(index)
 
     print("-" * 50)
     print("Expensive Priced Books:")
     print("")
-    for index in expensive:
+    for index in orderexpensive:
         print(index)
 
     print("-" * 50)
