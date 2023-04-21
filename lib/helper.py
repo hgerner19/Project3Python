@@ -336,19 +336,19 @@ def filter_price():
     print("-" * 50)
     print("Cheap Priced Books:")
     print("")
-    for index in ordercheap:
+    for index in cheap:
         print(index)
 
     print("-" * 50)
     print("Medium Priced Books:")
     print("")
-    for index in ordermedium:
+    for index in medium:
         print(index)
 
     print("-" * 50)
     print("Expensive Priced Books:")
     print("")
-    for index in orderexpensive:
+    for index in expensive:
         print(index)
 
     print("-" * 50)
