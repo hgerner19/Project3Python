@@ -249,15 +249,15 @@ def filter_genre():
 
 def filter_price():
     print("-" * 50)
-    print("What price would you like to filter by?")
+    print("What price would you like to filter by? (Enter whole integer)")
     print("-" * 50)
     check_price = input()
-    filtered_price = [book for book in books if book.book_price == check_price]
+    filtered_price = [book for book in books if int(book.book_price) == int(check_price)]
     if not filtered_price:
         print(f"No books found for {check_price}")
     else:
         print("-" * 50)
-        print(f"Here are the books for {check_price}")
+        print(f"Here are the books for ${check_price}")
         for book in filtered_price:
             print("-" * 50)
             print("Book: ", book.book_name)
@@ -271,15 +271,15 @@ def filter_price():
 
 def filter_rating():
     print("-" * 50)
-    print("What rating would you like to filter by?")
+    print("What rating would you like to filter by? (Enter whole integer)")
     print("-" * 50)
     check_rating = input()
-    filtered_rating = [book for book in books if book.book_rating == check_rating]
+    filtered_rating = [book for book in books if int(book.book_rating) == int(check_rating)]
     if not filtered_rating:
-        print(f"No books found for {check_rating}")
+        print(f"No books found for rating {check_rating}")
     else:
         print("-" * 50)
-        print(f"Here are the books for {check_rating}")
+        print(f"Here are the books for rating {check_rating}:")
         for book in filtered_rating:
             print("-" * 50)
             print("Book: ", book.book_name)
@@ -301,7 +301,7 @@ def filter_pages():
         print(f"No books found for {check_pages}")
     else:
         print("-" * 50)
-        print(f"Here are the books for {check_pages}")
+        print(f"Here are the books for {check_pages}:")
         for book in filtered_pages:
             print("-" * 50)
             print("Book: ", book.book_name)
