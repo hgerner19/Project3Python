@@ -8,6 +8,15 @@ from helper import main_menu
 engine = create_engine('sqlite:///models.db')
 session = sessionmaker(bind=engine)()
 
+#book_to_delete = session.query(Book).filter_by(id = 13). first()
+
+#if book_to_delete:
+    #session.delete(book_to_delete)
+    #session.commit()
+    #print(f"Book {book_to_delete.book_name} has been deleted.")
+#else:
+  #print("Book not found")
+  
 if __name__ == '__main__':
     print('''
   _      _  _                              
